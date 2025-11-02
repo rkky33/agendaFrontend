@@ -390,13 +390,16 @@ function getMaisVendido(lista){
     return keyMaior
 }
 
-function getWeekOfYear() {
-  const date = new Date();
-  const startOfYear = new Date(date.getFullYear(), 0, 1);
-  const dayOfYear = Math.floor((date - startOfYear) / 86400000) + 1;
-  const startDay = startOfYear.getDay();
-  const weekNo = Math.ceil((dayOfYear + startDay) / 7);
-  return weekNo;
+function getWeekOfYear() { //pega a semana do ano
+    const date =  new Date();
+    const data = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+
+    const dayNum = data.getUTCDay();
+    data.setUTCDate(data.getUTCDate() + 4 - dayNum);
+    const yearStart = new Date(Date.UTC(data.getUTCFullYear(), 0, 1));
+    weekNo = Math.ceil(((data - yearStart) / 86400000 + 1) / 7);
+
+    return weekNo;
 }
 
 function getWeekDay(){ //retorna dia da semana 0 a 6
