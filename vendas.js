@@ -390,15 +390,12 @@ function getMaisVendido(lista){
     return keyMaior
 }
 
-function getWeekOfYear(date = new Date()) {
-    
+function getWeekOfYear() {
+  const date = new Date();
   const startOfYear = new Date(date.getFullYear(), 0, 1);
   const dayOfYear = Math.floor((date - startOfYear) / 86400000) + 1;
-
   const startDay = startOfYear.getDay();
-
   const weekNo = Math.ceil((dayOfYear + startDay) / 7);
-
   return weekNo;
 }
 
