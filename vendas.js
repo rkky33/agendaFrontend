@@ -184,7 +184,7 @@ async function getMeta2() {
     barraVerde.style.width = `0%`
     tkAtual.style.color = "#ccc"
 
-    const resposta = await fetch (`http://192.168.0.103:3000/meta/${weekNo}` ,{
+    const resposta = await fetch (`https://agendabackend-xdmi.onrender.com/meta/${weekNo}` ,{
     headers: {
       "Authorization": `Bearer ${token}`
     }
@@ -222,7 +222,7 @@ async function getMeta2() {
     return true
 }
 async function getProdutos(){ //acessa a api para pegar a lista de produtos
-    const resposta = await fetch (`http://192.168.0.103:3000/produtos` ,{
+    const resposta = await fetch (`https://agendabackend-xdmi.onrender.com/produtos` ,{
     headers: {
       "Authorization": `Bearer ${token}`
     }
@@ -252,7 +252,7 @@ async function getVendas() {
     lblMediaDia.innerText = '0.0'
     lblMaisVendido.innerText = ""
 
-    const resposta = await fetch (`http://192.168.0.103:3000/vendas/${weekNo}`,{
+    const resposta = await fetch (`https://agendabackend-xdmi.onrender.com/vendas/${weekNo}`,{
     headers: {
       "Authorization": `Bearer ${token}`
     }
@@ -319,7 +319,7 @@ async function getVendas2() {
     lblMediaDia.innerText = '0.0'
     lblMaisVendido.innerText = ""
 
-    const resposta = await fetch (`http://192.168.0.103:3000/vendas/${weekNo}` ,{
+    const resposta = await fetch (`https://agendabackend-xdmi.onrender.com/vendas/${weekNo}` ,{
     headers: {
       "Authorization": `Bearer ${token}`
     }
@@ -586,7 +586,7 @@ btnConfirmarVenda.addEventListener('click', async () => {
         exclusivo: hasExclusivo,
         qtd: inputQtd.value,
     };
-    const resposta = await fetch(`http://192.168.0.103:3000/vendas`, {
+    const resposta = await fetch(`https://agendabackend-xdmi.onrender.com/vendas`, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
         body: JSON.stringify(payload)
@@ -631,7 +631,7 @@ btnConfirmarMeta.addEventListener('click', async () =>{
         metaKit: inputMetaKit.value,
         metaTm: inputMetaTm.value,
     };
-    const resposta = await fetch(`http://192.168.0.103:3000/meta`, {
+    const resposta = await fetch(`https://agendabackend-xdmi.onrender.com/meta`, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
         body: JSON.stringify(payload)
