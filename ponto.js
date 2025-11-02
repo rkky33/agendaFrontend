@@ -286,7 +286,7 @@ naoInformar.addEventListener("click", () => {
   janela2.style.display = "none";
 });
 
-const link = 
+const link = "https://chat.whatsapp.com"
 informar.addEventListener("click", () => {
   const texto = document.getElementById('texto').innerText;
   copiarParaClipboard(texto);
