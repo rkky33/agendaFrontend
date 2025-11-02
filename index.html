@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Login</title>
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 80vh;">
+    <div class="statusHorario" style="max-width: 950px; width: 80vw;">
+        <h1 style="margin-top: 30px;">Login</h1>
+        <input autocomplete="off" id="inputUser" class="numberInput" type="text" placeholder="Usuário" style="box-sizing: border-box; font-size: 18px; width: 85%; height: 40px; margin-top: 25px; margin-bottom: 8px; border-color: #4A4A4A;">
+        <div style="position: relative; width: 85%; margin-bottom: 20px; display: flex; align-items: center; box-sizing: border-box;">
+            <input autocomplete="off" id="inputPass" class="numberInput" type="password" placeholder="Senha"
+                style="font-size: 18px; width: 100%; height: 40px; border-color: #4A4A4A; box-sizing: border-box;">
+            <i id="togglePass" class="fa-solid fa-eye-slash"
+                style="transition: transform 0.1s ease-in; z-index: 10; color: #4A4A4A; position: absolute; right: 10px; cursor: pointer;"></i>
+        </div>
+        <p style="margin-bottom: 10px;" id="aviso" class="outro3">-----</p>
+        <button disabled id="btnLogin" class="btnLogin" style="margin-bottom: 30px; background-color: transparent; border-color: #4A4A4A;">Confirmar</button>
+    </div>
+</body>
+<script src="login.js"></script>
+</html>

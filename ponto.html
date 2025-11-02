@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="style.css">    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Marcar Ponto</title>
+</head>
+<body>
+    <a href="home.html" class="voltar" onclick="clicar(this); return false;">
+        <i class="fa-solid fa-chevron-left voltarIcon"></i>
+    </a>
+    <div class="container">
+        <h1 style="margin-top: 30px; font-size: 250%;" id="data"></h1>
+        <p id="hora"></p>
+    </div>
+    <div class="container">
+        <div class="containerLinha">
+            <div class="selectContainer">
+                <select id="opcoes">
+                    <option id="default" value="" selected style="display: none;" disabled>Escolha uma opção</option>
+                    <option value="0">Entrada</option>
+                    <option value="1">Almoço saída</option>
+                    <option value="2">Almoço retorno</option>
+                    <option value="3">Saída</option>
+                </select>
+            </div>
+            <button id="marcar">
+                Marcar
+            </button>
+        </div>
+        <p id="aviso" class="outro3">Escolha uma opção!</p>
+    </div>
+    <div class="statusHorario" id="container">
+        <p style="margin-bottom: 15px; color: #8d8d8d; width: 150px; font-size: larger;">Situação do dia</p>
+        <div style="display: flex; flex-direction: row; gap: 10px;">
+            <div style="display: flex; flex-direction: column; gap: 15px; text-align: left; width: 80px;">
+                <p class="lblCinza">Entrada: </p>
+                <p class="lblCinza">Almoço: </p>
+                <p class="lblCinza">Retorno: </p>
+                <p class="lblCinza">Saida: </p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 15px; text-align: left; width: 50px;">
+                <span class="lblHoras" id="lblhora0">-- --</span>
+                <span class="lblHoras" id="lblhora1">-- --</span>
+                <span class="lblHoras" id="lblhora2">-- --</span>
+                <span class="lblHoras" id="lblhora3">-- --</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="janela" class="modal">
+        <div class="conteudo">
+            <span id="fechar" class="fechar">&times;</span>
+            <h2>Marcar Ponto?</h2>
+            <p class="slim">Confirme as informações</p>
+            <div class="bloco">
+                <p class="outro"><span id="selecao"></span></p>
+                <p class="outro2">Hora:<p class="outro" id="hora2"></p></p>
+            </div>
+            <button id="confirmar" class="confirmar">Confirmar</button>
+
+        </div>
+    </div>
+    <div id="qrCode" class="modal">
+        <div class="conteudoQrCode">
+            <span id="fechar3" class="fechar">&times;</span>
+            <img class="qrCode" src="./assets/qrCode1.png" alt="">
+
+        </div>
+    </div>
+    <div id="qrCode2" class="modal">
+        <div class="conteudoQrCode">
+            <span id="fechar4" class="fechar">&times;</span>
+            <img class="qrCode" src="./assets/qrCode1.png" alt="">
+
+        </div>
+    </div>
+    <div id="janela2" class="modal">
+        <div class="conteudo">
+            <span id="fechar2" class="fechar">&times;</span>
+            <h2 style="margin: 40px 10px 0px 10px;">Gostaria de informar no Whatsapp?</h2>
+            <div class="containerLinha">
+                <button class="confirmar" id="informar">Sim</button>
+                <button class="confirmar" id="naoInformar">Não</button>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="containerLinha2">
+        <button id="btnQrCode2" class="btnCinza">QR code</button>
+        <button id="btnHistorico" class="btnCinza">Historico</button>
+    </div>
+
+    <div id="modalHistorico" class="modal">
+        <div class="conteudoHistorico">
+            <span id="fechar5" class="fechar">&times;</span>
+            <h1 class="midTitle">Selecione uma data</h1>
+            <div class="list">
+                <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+                <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
+                <div id="calendario"></div>
+                <button class="confirmar" id="Consultar" style="margin-top: 30px;">Consultar</button>
+            </div>
+        </div>
+    </div>
+    <div id="consulta" class="modal">
+        <div class="conteudoConsulta">
+            <span id="fechar6" class="fechar">&times;</span>
+            <p style="color: #8d8d8d; width: 150px; font-size: larger; margin: 0 auto; margin-top: 30px;">Situação do dia</p>
+            <p id="dataConsulta" style="color: #8d8d8d; width: 150px; font-size: medium; margin: 5px auto; margin-bottom: 30px; font-weight: 200;">23 de outubro</p>
+            <div style="display: flex; flex-direction: row; gap: 10px; max-width: 140px; margin: 0 auto; margin-bottom: 30px;">
+                <div style="display: flex; flex-direction: column; gap: 15px; text-align: left; width: 80px;">
+                    <p class="lblCinza">Entrada: </p>
+                    <p class="lblCinza">Almoço: </p>
+                    <p class="lblCinza">Retorno: </p>
+                    <p class="lblCinza">Saida: </p>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 15px; text-align: center; width: 60px;">
+                    <span class="lblHoras" id="lblhoraConsulta0">--  --</span>
+                    <span class="lblHoras" id="lblhoraConsulta1">--  --</span>
+                    <span class="lblHoras" id="lblhoraConsulta2">--  --</span>
+                    <span class="lblHoras" id="lblhoraConsulta3">--  --</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<p id="texto" style="opacity: 0;"></p>
+</body>
+<script src="ponto.js"></script>
+</html>

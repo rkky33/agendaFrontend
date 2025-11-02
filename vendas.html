@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Vendas</title>
+    </head>
+    <body>
+        <a id="voltar" href="home.html" class="voltar">
+            <i class="fa-solid fa-chevron-left voltarIcon"></i>
+        </a>
+        <div class="container">
+            <button id="btnSemana" style="all: unset; cursor: pointer; width: 300px; height: 80px; align-self: center; margin-top: 30px;">
+                <h1 id="semana">Semana</h1>
+                <i class="fa-solid fa-chevron-down voltarIcon"></i>
+            </button>
+        </div>
+
+        <div id="wdwBuscaSemana" class="modal">
+            <div class="conteudoConsultaSemana">
+                <span id="fecharBuscaSemana" class="fechar">&times;</span>
+                <h2>Consultar semana</h2>
+                <div class="containerLinha">
+                    <input id="inputSemana" type="number" class="numberInput" placeholder="Semana..." name="semana" min="1" max="52">
+                    <button disabled id="btnBuscarSemana" class="btnCheio">Buscar</button>
+                </div>
+            </div>
+        </div>
+        <div id="wdwNodados" class="modal">
+            <div class="conteudoConsultaSemana">
+                <span id="fecharNodados" class="fechar">&times;</span>
+                <h2>Não existem dados para esta semana</h2>
+                <button id="btnNodados" class="confirmar">Ok</button>
+            </div>
+        </div>
+        <div style="margin: 0px auto; width: 77vw; margin-top: 40px; max-width: 950px;">
+            <button id="btnVenda" style="width: 110px; height: 35px; font-size: small;">Lançar venda</button>
+        </div>
+
+        <div id="wdwVenda" class="modal">
+            <div class="conteudoConsultaSemana" style="width: 600px;">
+                <span id="fecharVenda" class="fechar">&times;</span>
+                <h2>Lançar venda</h2>
+                <div class="containerLinha" style="height: 40px;">
+                    <div style="height: fit-content;">
+                        <input id="inputProduto" type="text" class="numberInput" placeholder="Produto" name="qtd" style="position: relative; z-index: 10;width: 120px; height: 34.375px;" autocomplete="off">
+                        <div id="autocomplete" class="autocomplete"></div>
+                    </div>
+                    <input id="inputQtd" type="number" class="numberInput" placeholder="Qtd" name="qtd" min="1" style="width: 50px;" autocomplete="off">
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <button id="addExclusivo" style="background-color: transparent; font-size: 8%;"    >
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+                <div id="showExclusivo" class="containerLinha" style="height: 40px; display: none;">
+                    <input disabled id="inputExclusivo" type="text" class="numberInput" placeholder="Produto" name="qtd" style=" position: relative ;width: 120px; height: 34.375px;" autocomplete="off">
+                    <input disabled id="inputExclusivoQtd" type="number" class="numberInput" placeholder="Qtd" name="qtd" min="1" style=" width: 50px;" autocomplete="off">
+                </div>
+
+
+                <button style="position: relative;" id="btnConfirmarVenda" class="confirmar" disabled>Confirmar</button>
+            </div>
+
+        </div>
+        <div id="wdwMeta" class="modal">
+            <div class="conteudoConsultaSemana" style="width: 600px;">
+                <span id="fecharMeta" class="fechar">&times;</span>
+                <h2>Gostaria de lançar a meta?</h2>
+                <div class="containerLinha" style="height: 40px;">
+                    <input id="inputMetaKit" type="number" class="numberInput" placeholder="Kit" name="metaKit" style="width: 70px;" autocomplete="off">
+                    <input id="inputMetaTm" type="number" class="numberInput" placeholder="Ticket" name="metaTm" style="width: 70px;" autocomplete="off">
+                </div>
+                <button style="position: relative;" id="btnConfirmarMeta" class="confirmar" disabled>Confirmar</button>
+            </div>
+        </div>
+
+
+        <div class="statusSemana">
+            <div class="linha dias">
+                <p id="dia0" class="lblCinza" style="font-size: smaller;">Dom</p>
+                <p id="dia1" class="lblCinza" style="font-size: smaller;">Seg</p>
+                <p id="dia2" class="lblCinza" style="font-size: smaller;">Ter</p>
+                <p id="dia3" class="lblCinza" style="font-size: smaller;">Qua</p>
+                <p id="dia4" class="lblCinza" style="font-size: smaller;">Qui</p>
+                <p id="dia5" class="lblCinza" style="font-size: smaller;">Sex</p>
+                <p id="dia6" class="lblCinza" style="font-size: smaller;">Sáb</p>
+            </div>
+            <div class="linha barras">
+                <div id="barra0">
+                    <div class="barraNull"></div>
+                </div>
+                <div id="barra1">
+                    <div class="barraNull"></div>
+                </div>
+                <div id="barra2">
+                    <div class="barraNull"></div>
+                </div>
+                <div id="barra3">
+                    <div class="barraNull"></div>
+                </div>
+                <div id="barra4">
+                    <div class="barraNull"></div>
+                </div>
+                <div id="barra5">
+                    <div class="barraNull"></div>
+                </div>
+                <div id="barra6">
+                    <div class="barraNull"></div>
+                </div>
+            </div>
+            <div class="linha numeros">
+                <p id="Number0" class="lblCinza" style="font-size: smaller;">0.0</p>
+                <p id="Number1" class="lblCinza" style="font-size: smaller;">0.0</p>
+                <p id="Number2" class="lblCinza" style="font-size: smaller;">0.0</p>
+                <p id="Number3" class="lblCinza" style="font-size: smaller;">0.0</p>
+                <p id="Number4" class="lblCinza" style="font-size: smaller;">0.0</p>
+                <p id="Number5" class="lblCinza" style="font-size: smaller;">0.0</p>
+                <p id="Number6" class="lblCinza" style="font-size: smaller;">0.0</p>
+            </div>
+        </div>
+
+        <div style="margin: 0px auto; margin-top: 50px; display: flex; align-items: flex-end; max-width: 950px; width: 85vw; justify-content: space-between;">
+            <div id="containerMeta" style="display: flex; flex-direction: row;">
+                <h1 style="margin: 0; text-align: left; font-size: 40px;">Meta</h1>
+            </div>
+            <h2 id="metaAtual" style="margin: 8px; text-align: right; color: #87df87; font-size: 15px;">Atingido: 00.0</h2>
+        </div>
+        <div style="background-color: #A1A1A1; max-width: 950px; width: 85vw; height: 40px; margin: 0px auto; border-radius: 6px; box-shadow: 0 4px 10px #0A0A0A;">
+            <div id="barraVerde" style="background-color: #87df87; width: 0%; height: 40px; border-top-left-radius: 6px; border-bottom-left-radius: 6px;"></div>
+        </div>
+        <div style="margin: 0px auto; margin-top: 6px; display: flex; align-items: flex-end; max-width: 950px; width: 85vw; justify-content: space-between;">
+            <p id="metaRest" class="lblCinza" style="margin: 0px; text-align: left;  font-size: 12px;">Restam: 00.0</p>
+            <p id="metaTotal" class="lblCinza" style="margin: 0px; text-align: right; font-size: 12px; color: #ccc;">Total: 00</p>
+        </div>
+        <div style="margin: 0px auto; margin-top: 30px; display: flex; align-items: flex-end; max-width: 950px; width: 85vw; justify-content: space-between;">
+            <h2 class="lblCinza" style="margin: 0px; text-align: left; color: #ccc; font-size: 16px;">Tk médio</h2>
+            <div style="background-color: #ccc; width: 2px; height: 22px; margin: 0px auto; border-radius: 6px;"></div>
+            <h2 id="tkAtual" class="lblCinza" style="margin: 0px; text-align: right; color: #ccc; font-size: 16px;">Atual: 000</h2>
+            <div style="background-color: #ccc; width: 2px; height: 22px; margin: 0px auto; border-radius: 6px;"></div>
+            <h2 id="tkAlvo" class="lblCinza" style="margin: 0px; text-align: right; font-size: 16px; color: #ccc;">Alvo: 000</h2>
+        </div>
+
+        <div class="linha-cinza" style= "max-width: 950px; width: 85vw; margin: 10px auto; margin-top: 50px;"></div>
+        <div style="margin: 0px auto; margin-top: 50px; display: flex; align-items: flex-end; max-width: 950px; width: 85vw; justify-content: space-between;">
+            <h1 style="margin: 0; text-align: left; font-size: 40px;">Resumo</h1>
+        </div>
+        <div class="resumo">
+            <div class="resumoBox">
+                <p class="lblCinza" style="font-size: 12px">Valor total em reais</p>
+                <h2 id="lblValorReais" style="margin: 15px auto;">R$ 00.00</h2>
+            </div>
+            <div class="resumoBox">
+                <p class="lblCinza" style="font-size: 12px">Média diária em reais</p>
+                <h2 id="lblValorMedioReais" style="margin: 15px auto;">R$ 00.00</h2>
+            </div>
+            <div class="resumoBox">
+                <p class="lblCinza" style="font-size: 12px">Média diária de vendas</p>
+                <h2 id="lblMediaDia" style="margin: 15px auto;">00.0</h2>
+            </div>
+            <div class="resumoBox">
+                <p class="lblCinza" style="font-size: 12px">Produto mais vendido</p>
+                <h2 id="lblMaisVendido" style="margin: 15px auto;">----</h2>
+            </div>
+        </div>
+    
+    </body>
+    <script src="vendas.js"></script>
+</html>
