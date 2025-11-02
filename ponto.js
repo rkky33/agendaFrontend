@@ -77,16 +77,16 @@ function AlteraCopy(){
   const texto = document.getElementById('texto')
   console.log(texto)
   if (select.value === "0"){
-    texto.innerText = "akemi - entrada"
+    texto.innerText = "debora - entrada"
   }
   else if (select.value === "1"){
-    texto.innerText = "akemi - almoco"   
+    texto.innerText = "debora - almoço"   
   }
   else if (select.value === "2"){
-    texto.innerText = "akemi - retorno"
+    texto.innerText = "debora - retorno"
   }
   else if (select.value === "3"){
-    texto.innerText = "akemi - saida"
+    texto.innerText = "debora - saida"
   }
   console.log(select.value)
 }
