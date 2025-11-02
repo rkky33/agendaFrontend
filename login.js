@@ -35,7 +35,7 @@ btnLogin.addEventListener('click', async () =>{
         userName: inputUser.value,
         passWd: inputPass.value,
     };
-    const resposta = await fetch(`http://192.168.0.103:3000/auth/login`, {
+    const resposta = await fetch(`https://agendabackend-xdmi.onrender.com/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
