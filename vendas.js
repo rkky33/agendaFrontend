@@ -142,7 +142,7 @@ async function getMeta() {
     barraVerde.style.width = `0%`
     tkAtual.style.color = "#ccc"
 
-    const resposta = await fetch (`http://192.168.0.103:3000/meta/${weekNo}` ,{
+    const resposta = await fetch (`https://agendabackend-xdmi.onrender.com/meta/${weekNo}` ,{
     headers: {
       "Authorization": `Bearer ${token}`
     }
