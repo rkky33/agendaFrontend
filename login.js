@@ -35,7 +35,7 @@ btnLogin.addEventListener('click', async () =>{
         userName: inputUser.value,
         passWd: inputPass.value,
     };
-    const resposta = await fetch(`https://agendabackend-xdmi.onrender.com/auth/login`, {
+    const resposta = await fetch(`https://agenda-backend-gt9l.vercel.app/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)

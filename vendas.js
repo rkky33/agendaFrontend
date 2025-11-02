@@ -142,7 +142,7 @@ async function getMeta() {
     barraVerde.style.width = `0%`
     tkAtual.style.color = "#ccc"
 
-    const resposta = await fetch (`https://agendabackend-xdmi.onrender.com/meta/${weekNo}` ,{
+    const resposta = await fetch (`https://agenda-backend-gt9l.vercel.app/meta/${weekNo}` ,{
     headers: {
       "Authorization": `Bearer ${token}`
     }
@@ -184,7 +184,7 @@ async function getMeta2() {
     barraVerde.style.width = `0%`
     tkAtual.style.color = "#ccc"
 
-    const resposta = await fetch (`https://agendabackend-xdmi.onrender.com/meta/${weekNo}` ,{
+    const resposta = await fetch (`https://agenda-backend-gt9l.vercel.app/meta/${weekNo}` ,{
     headers: {
       "Authorization": `Bearer ${token}`
     }
@@ -222,7 +222,7 @@ async function getMeta2() {
     return true
 }
 async function getProdutos(){ //acessa a api para pegar a lista de produtos
-    const resposta = await fetch (`https://agendabackend-xdmi.onrender.com/produtos` ,{
+    const resposta = await fetch (`https://agenda-backend-gt9l.vercel.app/produtos` ,{
     headers: {
       "Authorization": `Bearer ${token}`
     }
@@ -252,7 +252,7 @@ async function getVendas() {
     lblMediaDia.innerText = '0.0'
     lblMaisVendido.innerText = ""
 
-    const resposta = await fetch (`https://agendabackend-xdmi.onrender.com/vendas/${weekNo}`,{
+    const resposta = await fetch (`https://agenda-backend-gt9l.vercel.app/vendas/${weekNo}`,{
     headers: {
       "Authorization": `Bearer ${token}`
     }
@@ -319,7 +319,7 @@ async function getVendas2() {
     lblMediaDia.innerText = '0.0'
     lblMaisVendido.innerText = ""
 
-    const resposta = await fetch (`https://agendabackend-xdmi.onrender.com/vendas/${weekNo}` ,{
+    const resposta = await fetch (`https://agenda-backend-gt9l.vercel.app/vendas/${weekNo}` ,{
     headers: {
       "Authorization": `Bearer ${token}`
     }
@@ -585,7 +585,7 @@ btnConfirmarVenda.addEventListener('click', async () => {
         exclusivo: hasExclusivo,
         qtd: inputQtd.value,
     };
-    const resposta = await fetch(`https://agendabackend-xdmi.onrender.com/vendas`, {
+    const resposta = await fetch(`https://agenda-backend-gt9l.vercel.app/vendas`, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
         body: JSON.stringify(payload)
@@ -630,7 +630,7 @@ btnConfirmarMeta.addEventListener('click', async () =>{
         metaKit: inputMetaKit.value,
         metaTm: inputMetaTm.value,
     };
-    const resposta = await fetch(`https://agendabackend-xdmi.onrender.com/meta`, {
+    const resposta = await fetch(`https://agenda-backend-gt9l.vercel.app/meta`, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
         body: JSON.stringify(payload)
