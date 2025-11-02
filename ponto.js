@@ -100,7 +100,7 @@ async function buscarHoras() {
   const dataFormatada = `${ano}-${mes}-${dia}`;
   console.log(dataFormatada);
 
-  const resposta = await fetch(`http://192.168.0.103:3000/horario/${dataFormatada}` ,{
+  const resposta = await fetch(`https://agendabackend-xdmi.onrender.com/horario/${dataFormatada}` ,{
     headers: {
       "Authorization": `Bearer ${token}`
     }
@@ -149,7 +149,7 @@ async function buscarHoras2(data) {
   console.log(data)
   const dataFormatada = calendario.formatDate(data, "Y-m-d")
 
-  const resposta = await fetch(`http://192.168.0.103:3000/horario/${dataFormatada}` ,{
+  const resposta = await fetch(`https://agendabackend-xdmi.onrender.com/horario/${dataFormatada}` ,{
     headers: {
       "Authorization": `Bearer ${token}`
     }
@@ -262,7 +262,7 @@ confirmar.addEventListener("click", async () => {
     tipo: Number(tipo),
     data: data
   };
-  const resposta = await fetch(`http://192.168.0.103:3000/horario`, {
+  const resposta = await fetch(`https://agendabackend-xdmi.onrender.com/horario`, {
     method: "POST",
     headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
     body: JSON.stringify(payload)
@@ -286,7 +286,7 @@ naoInformar.addEventListener("click", () => {
   janela2.style.display = "none";
 });
 
-const link = "https://chat.whatsapp.com/E78pf9UKbHXBf3P9sG1Ucq"
+const link = 
 informar.addEventListener("click", () => {
   const texto = document.getElementById('texto').innerText;
   copiarParaClipboard(texto);
